@@ -1,4 +1,5 @@
-﻿# 這是有關於缺陷追蹤管理系統的專案           
+﻿[GitHub Pages](https://wecboy.github.io/)      
+# 這是有關於缺陷追蹤管理系統的專案           
 
 ## 資料庫      
 資料庫檔案放置於bug_tracker\App_Data\script.sql                     
