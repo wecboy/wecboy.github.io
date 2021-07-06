@@ -1,11 +1,13 @@
 ﻿這是有關於缺陷追蹤管理系統的專案        
 ###          
 資料庫存放         
-bug_tracker\App_Data\script.sql          
+bug_tracker\App_Data\script.sql           
+=================================            
+
 ###          
 測試人員          
 step1.註冊新帳號!          
-step2.登入帳號          
+step2.登入帳號(001/001)          
 step3.重設密碼          
 step4.登入帳號與新密碼          
 step5.新增,修改,刪除,與查詢缺陷          
@@ -15,7 +17,7 @@ step8.登出
 step9.忘記密碼          
 step10.登入帳號與新密碼          
 管理者          
-step1.登入帳號          
+step1.登入帳號(admin/admin)          
 step2.新增,修改,刪除,與查詢缺陷.         
 step3.新增,修改,刪除,與查詢人員.         
 step4.新增,修改,刪除,與查詢專案.          
@@ -26,6 +28,7 @@ step7.登出
 ###      
 管理者:admin/admin         
 測試人員:001/001           
-資料庫:sa/1qaz@wsx      
+資料庫:bug_tracker            
+資料庫管理者:sa/1qaz@wsx              
         
   
