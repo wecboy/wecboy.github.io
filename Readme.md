@@ -26,6 +26,6 @@ step7.登出
 ###      
 管理者:admin/admin         
 測試人員:001/001           
-資料庫密碼:sa/1qaz@wsx      
+資料庫:sa/1qaz@wsx      
         
   
