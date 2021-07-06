@@ -1,9 +1,7 @@
 ﻿# 這是有關於缺陷追蹤管理系統的專案           
 
-## 資料庫         
-資料庫檔案放置於         
-bug_tracker\App_Data\script.sql           
-=================================            
+## 資料庫      
+資料庫檔案放置於bug_tracker\App_Data\script.sql                     
 
 ## 簡單操作說明        
 ### 測試人員          
