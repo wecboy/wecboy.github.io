@@ -1,0 +1,105 @@
+﻿@model IEnumerable<bug_tracker.Models.users>
+
+@{
+    ViewBag.Title = "TList";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<script>
+    var table;
+    $(document).ready(function ()
+    {
+        table = $('#table').DataTable(
+            {
+                "language":
+                {
+                    url: "@Url.Content("~/Content/DataTables/lang/Chinese-traditional.json")"
+                }
+            }
+            );
+    });
+
+</script>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">帳號管理列表</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <p>
+                    @Html.ActionLink("建立新帳號", "TCreate", "User", null, new { @class = "btn btn-success" })
+                </p>
+                <table class="table" id="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.umno)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.uname)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.urole)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.uphone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.uemail)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ubirthday)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.remark)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.isvarify)
+                            </th>
+                            <th>功能</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.umno)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.uname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.urole)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.uphone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.uemail)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ubirthday)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.remark)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.isvarify)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("修改", "TEdit", "User", new { id = item.rowid }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("刪除", "TDelete", "User", new { id = item.rowid }, new { @class = "btn btn-info", onclick = "return confirm('是否確定要刪除?')" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

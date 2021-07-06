@@ -1,0 +1,112 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model IEnumerable<bug_tracker.Models.projects>
+
+@{
+    ViewBag.Title = "TList";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<script>
+    var table;
+    $(document).ready(function ()
+    {
+        table = $('#table').DataTable(
+            {
+                "language":
+                {
+                    url: "@Url.Content("~/Content/DataTables/lang/Chinese-traditional.json")"
+                }
+            }
+            );
+    });
+
+</script>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">專案管理列表</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <p>
+                    @Html.ActionLink("建立新專案", "TCreate", "Project", null, new { @class = "btn btn-success" })
+                </p>
+                <table class="table" id="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.pname)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.pdescription)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.pmanager_id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.pinit_time)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.pmodified_time)
+                            </th>
+                            <th>功能</th>
+                        </tr>
+                    </thead>
+                    @*<tfoot>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.pname)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.pdescription)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.pmanager_id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.pinit_time)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.pmodified_time)
+                                </th>
+                            </tr>
+                        </tfoot>*@
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.pname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.pdescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.pmanager_id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.pinit_time)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.pmodified_time)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("修改", "TEdit", "Project", new { id = item.rowid }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("刪除", "TDelete", "Project", new { id = item.rowid }, new { @class = "btn btn-info", onclick = "return confirm('是否確定要刪除?')" })
+
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @*@Html.PagedListPager((IPagedList)Model, x => Url.Action("List", new { page = x }))*@
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

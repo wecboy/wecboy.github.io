@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="bug_trackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AppCode">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+          <Property Name="remark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="bugs">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bid" Type="nvarchar" MaxLength="50" />
+          <Property Name="bsummary" Type="nvarchar" MaxLength="50" />
+          <Property Name="bcreator" Type="nvarchar" MaxLength="50" />
+          <Property Name="bstatus_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="bpriority_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="binit_time" Type="datetime" />
+          <Property Name="bmodified_time" Type="datetime" />
+          <Property Name="bpid" Type="nvarchar" MaxLength="50" />
+          <Property Name="basignee" Type="nvarchar" MaxLength="50" />
+          <Property Name="bdescription" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="priorities">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+          <Property Name="remark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="projects">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pid" Type="nvarchar" MaxLength="50" />
+          <Property Name="pname" Type="nvarchar" MaxLength="50" />
+          <Property Name="pdescription" Type="nvarchar" MaxLength="250" />
+          <Property Name="pmanager_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="pinit_time" Type="datetime" />
+          <Property Name="pmodified_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rid" Type="nvarchar" MaxLength="50" />
+          <Property Name="rrule" Type="nvarchar" MaxLength="50" />
+          <Property Name="rname" Type="nvarchar" MaxLength="50" />
+          <Property Name="rremark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+          <Property Name="remark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="UserMessage">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="date_sender" Type="datetime" />
+          <Property Name="date_read" Type="datetime" />
+          <Property Name="sender_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="sender_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="receive_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="receive_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="is_read" Type="bit" Nullable="false" />
+          <Property Name="text_title" Type="nvarchar" MaxLength="50" />
+          <Property Name="text_content" Type="nvarchar(max)" />
+          <Property Name="remark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="nvarchar" MaxLength="50" />
+          <Property Name="umno" Type="nvarchar" MaxLength="50" />
+          <Property Name="uname" Type="nvarchar" MaxLength="50" />
+          <Property Name="upassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="uphone" Type="nvarchar" MaxLength="50" />
+          <Property Name="uemail" Type="nvarchar" MaxLength="250" />
+          <Property Name="urole" Type="nvarchar" MaxLength="50" />
+          <Property Name="ubirthday" Type="date" />
+          <Property Name="remark" Type="nvarchar" MaxLength="250" />
+          <Property Name="varify_code" Type="nvarchar" MaxLength="50" />
+          <Property Name="isvarify" Type="bit" Nullable="false" />
+          <Property Name="uinit_time" Type="datetime" />
+          <Property Name="umodified_time" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="bug_trackerModelStoreContainer">
+          <EntitySet Name="AppCode" EntityType="Self.AppCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bugs" EntityType="Self.bugs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="priorities" EntityType="Self.priorities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="projects" EntityType="Self.projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="status" EntityType="Self.status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserMessage" EntityType="Self.UserMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bug_trackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="bug_trackerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="roles" EntityType="bug_trackerModel.roles" />
+          <EntitySet Name="users" EntityType="bug_trackerModel.users" />
+          <EntitySet Name="projects" EntityType="bug_trackerModel.projects" />
+          <EntitySet Name="bugs" EntityType="bug_trackerModel.bugs" />
+          <EntitySet Name="priorities" EntityType="bug_trackerModel.priorities" />
+          <EntitySet Name="status" EntityType="bug_trackerModel.status" />
+          <EntitySet Name="UserMessage" EntityType="bug_trackerModel.UserMessage" />
+          <EntitySet Name="AppCode" EntityType="bug_trackerModel.AppCode" />
+        </EntityContainer>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rrule" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rremark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="umno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="uname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="upassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="uphone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="uemail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="urole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ubirthday" Type="DateTime" Precision="0" />
+          <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="varify_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isvarify" Type="Boolean" Nullable="false" />
+          <Property Name="uinit_time" Type="DateTime" Precision="3" />
+          <Property Name="umodified_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="projects">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pdescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pmanager_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pinit_time" Type="DateTime" Precision="3" />
+          <Property Name="pmodified_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="bugs">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bsummary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bcreator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bstatus_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bpriority_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="binit_time" Type="DateTime" Precision="3" />
+          <Property Name="bmodified_time" Type="DateTime" Precision="3" />
+          <Property Name="bpid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="basignee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bdescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="priorities">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserMessage">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date_sender" Type="DateTime" Precision="3" />
+          <Property Name="date_read" Type="DateTime" Precision="3" />
+          <Property Name="sender_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sender_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="receive_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="receive_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="is_read" Type="Boolean" Nullable="false" />
+          <Property Name="text_title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="text_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AppCode">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bug_trackerModelStoreContainer" CdmEntityContainer="bug_trackerEntities">
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="bug_trackerModel.roles">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="rremark" ColumnName="rremark" />
+                <ScalarProperty Name="rname" ColumnName="rname" />
+                <ScalarProperty Name="rrule" ColumnName="rrule" />
+                <ScalarProperty Name="rid" ColumnName="rid" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="bug_trackerModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="umodified_time" ColumnName="umodified_time" />
+                <ScalarProperty Name="uinit_time" ColumnName="uinit_time" />
+                <ScalarProperty Name="isvarify" ColumnName="isvarify" />
+                <ScalarProperty Name="varify_code" ColumnName="varify_code" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="ubirthday" ColumnName="ubirthday" />
+                <ScalarProperty Name="urole" ColumnName="urole" />
+                <ScalarProperty Name="uemail" ColumnName="uemail" />
+                <ScalarProperty Name="uphone" ColumnName="uphone" />
+                <ScalarProperty Name="upassword" ColumnName="upassword" />
+                <ScalarProperty Name="uname" ColumnName="uname" />
+                <ScalarProperty Name="umno" ColumnName="umno" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="projects">
+            <EntityTypeMapping TypeName="bug_trackerModel.projects">
+              <MappingFragment StoreEntitySet="projects">
+                <ScalarProperty Name="pmodified_time" ColumnName="pmodified_time" />
+                <ScalarProperty Name="pinit_time" ColumnName="pinit_time" />
+                <ScalarProperty Name="pmanager_id" ColumnName="pmanager_id" />
+                <ScalarProperty Name="pdescription" ColumnName="pdescription" />
+                <ScalarProperty Name="pname" ColumnName="pname" />
+                <ScalarProperty Name="pid" ColumnName="pid" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bugs">
+            <EntityTypeMapping TypeName="bug_trackerModel.bugs">
+              <MappingFragment StoreEntitySet="bugs">
+                <ScalarProperty Name="bdescription" ColumnName="bdescription" />
+                <ScalarProperty Name="basignee" ColumnName="basignee" />
+                <ScalarProperty Name="bpid" ColumnName="bpid" />
+                <ScalarProperty Name="bmodified_time" ColumnName="bmodified_time" />
+                <ScalarProperty Name="binit_time" ColumnName="binit_time" />
+                <ScalarProperty Name="bpriority_id" ColumnName="bpriority_id" />
+                <ScalarProperty Name="bstatus_id" ColumnName="bstatus_id" />
+                <ScalarProperty Name="bcreator" ColumnName="bcreator" />
+                <ScalarProperty Name="bsummary" ColumnName="bsummary" />
+                <ScalarProperty Name="bid" ColumnName="bid" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="priorities">
+            <EntityTypeMapping TypeName="bug_trackerModel.priorities">
+              <MappingFragment StoreEntitySet="priorities">
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="status">
+            <EntityTypeMapping TypeName="bug_trackerModel.status">
+              <MappingFragment StoreEntitySet="status">
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserMessage">
+            <EntityTypeMapping TypeName="bug_trackerModel.UserMessage">
+              <MappingFragment StoreEntitySet="UserMessage">
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="text_content" ColumnName="text_content" />
+                <ScalarProperty Name="text_title" ColumnName="text_title" />
+                <ScalarProperty Name="is_read" ColumnName="is_read" />
+                <ScalarProperty Name="receive_name" ColumnName="receive_name" />
+                <ScalarProperty Name="receive_no" ColumnName="receive_no" />
+                <ScalarProperty Name="sender_name" ColumnName="sender_name" />
+                <ScalarProperty Name="sender_no" ColumnName="sender_no" />
+                <ScalarProperty Name="date_read" ColumnName="date_read" />
+                <ScalarProperty Name="date_sender" ColumnName="date_sender" />
+                <ScalarProperty Name="code_no" ColumnName="code_no" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppCode">
+            <EntityTypeMapping TypeName="bug_trackerModel.AppCode">
+              <MappingFragment StoreEntitySet="AppCode">
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="type_no" ColumnName="type_no" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

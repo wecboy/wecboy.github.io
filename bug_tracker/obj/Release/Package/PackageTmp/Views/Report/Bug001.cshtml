@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Bug001";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+@Html.DevExpress().WebDocumentViewer(settings =>
+{
+    settings.Name = "WebDocumentViewer1";
+}).Bind(new DevExpress.XtraReports.Web.CachedReportSourceWeb(new bug_tracker.Reports.bug001())).GetHtml()

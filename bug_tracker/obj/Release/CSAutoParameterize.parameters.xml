@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="bug_trackerEntities-Web.config Connection String" description="bug_trackerEntities 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\SQL2019;initial catalog=bug_tracker;persist security info=True;user id=sa;password=1qaz@wsx;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\workspace\\project\\bug_tracker\\bug_tracker\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='bug_trackerEntities']/@connectionString" />
+  </parameter>
+  <parameter name="bug_trackerEntities (bug_tracker)-Web.config Connection String" description="bug_trackerEntities (bug_tracker) 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="xpoprovider=MSSqlServer;data source=.\SQL2019;initial catalog=bug_tracker;user id=sa;password=1qaz@wsx;persist security info=True;multipleactiveresultsets=True;application name=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\workspace\\project\\bug_tracker\\bug_tracker\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='bug_trackerEntities (bug_tracker)']/@connectionString" />
+  </parameter>
+  <parameter name="localhost_bug_tracker_Connection-Web.config Connection String" description="localhost_bug_tracker_Connection 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="XpoProvider=MSSqlServer;data source=LAPTOP-C8HFCDNG\SQL2019;user id=sa;password=1qaz@wsx;initial catalog=bug_tracker;Persist Security Info=true" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\workspace\\project\\bug_tracker\\bug_tracker\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='localhost_bug_tracker_Connection']/@connectionString" />
+  </parameter>
+</parameters>

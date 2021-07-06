@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bug_trackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="bug_trackerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="roles" EntityType="bug_trackerModel.roles" />
+    <EntitySet Name="users" EntityType="bug_trackerModel.users" />
+    <EntitySet Name="projects" EntityType="bug_trackerModel.projects" />
+    <EntitySet Name="bugs" EntityType="bug_trackerModel.bugs" />
+    <EntitySet Name="priorities" EntityType="bug_trackerModel.priorities" />
+    <EntitySet Name="status" EntityType="bug_trackerModel.status" />
+    <EntitySet Name="UserMessage" EntityType="bug_trackerModel.UserMessage" />
+    <EntitySet Name="AppCode" EntityType="bug_trackerModel.AppCode" />
+  </EntityContainer>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="rrule" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="rname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="rremark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="umno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="uname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="upassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="uphone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="uemail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="urole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ubirthday" Type="DateTime" Precision="0" />
+    <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="varify_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isvarify" Type="Boolean" Nullable="false" />
+    <Property Name="uinit_time" Type="DateTime" Precision="3" />
+    <Property Name="umodified_time" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="projects">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pdescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="pmanager_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pinit_time" Type="DateTime" Precision="3" />
+    <Property Name="pmodified_time" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="bugs">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bsummary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bcreator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bstatus_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bpriority_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="binit_time" Type="DateTime" Precision="3" />
+    <Property Name="bmodified_time" Type="DateTime" Precision="3" />
+    <Property Name="bpid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="basignee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bdescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="priorities">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="status">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UserMessage">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="date_sender" Type="DateTime" Precision="3" />
+    <Property Name="date_read" Type="DateTime" Precision="3" />
+    <Property Name="sender_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sender_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="receive_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="receive_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="is_read" Type="Boolean" Nullable="false" />
+    <Property Name="text_title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="text_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AppCode">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="type_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

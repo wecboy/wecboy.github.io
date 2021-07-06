@@ -1,0 +1,83 @@
+﻿@model bug_tracker.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">註冊新帳號!</h1>
+                            </div>
+                            <form class="user">
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.UserNo, new { htmlAttributes = new { @class = "form-control", @placeholder = "請輸入帳號" } })
+                                    @Html.ValidationMessageFor(model => model.UserNo, "", new { @class = "text-danger" })
+
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @placeholder = "請輸入姓名" } })
+                                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "請輸入密碼" } })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.UserPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "請輸入電話" } })
+                                    @Html.ValidationMessageFor(model => model.UserPhone, "", new { @class = "text-danger" })
+
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.UserEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "請輸入電子郵件信箱" } })
+                                    @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-danger" })
+                                    @*<input type="email" class="form-control form-control-user" id="exampleInputEmail"
+            placeholder="Email Address">*@
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.BirthDay, new { htmlAttributes = new { @class = "form-control datepicker", @placeholder = "請輸入生日" } })
+                                    @Html.ValidationMessageFor(model => model.BirthDay, "", new { @class = "text-danger" })
+
+                                </div>
+                                <input type="submit" value="註冊帳號" class="btn btn-primary btn-user btn-block" />
+                                @*<a href="login.html" class="btn btn-primary btn-user btn-block">
+            註冊帳號
+        </a>*@
+                                <hr>
+                                @*<a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i> Register with Google
+                                </a>
+                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a>*@
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                @Html.ActionLink("忘記密碼?", "ForgetPassword", "User", null, new { @class = "small" })
+                            </div>
+                            <div class="text-center">
+                                @Html.ActionLink("返回登入!", "Login", "User", null, new { @class = "small" })
+                                @*<a class="small" href="login.html">Already have an account? Login!</a>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}

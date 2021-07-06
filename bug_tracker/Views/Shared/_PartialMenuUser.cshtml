@@ -1,0 +1,23 @@
+﻿ <!-- Heading -->
+<div class="sidebar-heading">
+    使用者介面
+</div>
+<!-- Nav Item - Pages Collapse Menu -->
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+       aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fa fa-list-alt menu-icon"></i>
+        <span class="h3">缺陷列表</span>
+    </a>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            @*<h6 class="collapse-header">Custom Components:</h6>*@
+            <a class="collapse-item" href="@Url.Action("ALLTList", "Bug")">缺陷列表</a>
+            <a class="collapse-item" href="@Url.Action("TList", "Bug")">由我回報的</a>
+            <a class="collapse-item" href="@Url.Action("ATList", "Bug")">分配給我的</a>
+            <a class="collapse-item" href="@Url.Action("TCreate", "Bug")">回報問題</a>
+        </div>
+    </div>
+</li>
+<!-- Divider -->
+<hr class="sidebar-divider">

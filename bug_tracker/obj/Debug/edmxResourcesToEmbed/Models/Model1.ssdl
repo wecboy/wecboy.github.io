@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bug_trackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AppCode">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="mno" Type="nvarchar" MaxLength="50" />
+    <Property Name="mname" Type="nvarchar" MaxLength="50" />
+    <Property Name="remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="bugs">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bid" Type="nvarchar" MaxLength="50" />
+    <Property Name="bsummary" Type="nvarchar" MaxLength="50" />
+    <Property Name="bcreator" Type="nvarchar" MaxLength="50" />
+    <Property Name="bstatus_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="bpriority_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="binit_time" Type="datetime" />
+    <Property Name="bmodified_time" Type="datetime" />
+    <Property Name="bpid" Type="nvarchar" MaxLength="50" />
+    <Property Name="basignee" Type="nvarchar" MaxLength="50" />
+    <Property Name="bdescription" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="priorities">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mno" Type="nvarchar" MaxLength="50" />
+    <Property Name="mname" Type="nvarchar" MaxLength="50" />
+    <Property Name="remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="projects">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pid" Type="nvarchar" MaxLength="50" />
+    <Property Name="pname" Type="nvarchar" MaxLength="50" />
+    <Property Name="pdescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="pmanager_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="pinit_time" Type="datetime" />
+    <Property Name="pmodified_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rid" Type="nvarchar" MaxLength="50" />
+    <Property Name="rrule" Type="nvarchar" MaxLength="50" />
+    <Property Name="rname" Type="nvarchar" MaxLength="50" />
+    <Property Name="rremark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="status">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mno" Type="nvarchar" MaxLength="50" />
+    <Property Name="mname" Type="nvarchar" MaxLength="50" />
+    <Property Name="remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="UserMessage">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="date_sender" Type="datetime" />
+    <Property Name="date_read" Type="datetime" />
+    <Property Name="sender_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="sender_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="receive_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="receive_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="is_read" Type="bit" Nullable="false" />
+    <Property Name="text_title" Type="nvarchar" MaxLength="50" />
+    <Property Name="text_content" Type="nvarchar(max)" />
+    <Property Name="remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="nvarchar" MaxLength="50" />
+    <Property Name="umno" Type="nvarchar" MaxLength="50" />
+    <Property Name="uname" Type="nvarchar" MaxLength="50" />
+    <Property Name="upassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="uphone" Type="nvarchar" MaxLength="50" />
+    <Property Name="uemail" Type="nvarchar" MaxLength="250" />
+    <Property Name="urole" Type="nvarchar" MaxLength="50" />
+    <Property Name="ubirthday" Type="date" />
+    <Property Name="remark" Type="nvarchar" MaxLength="250" />
+    <Property Name="varify_code" Type="nvarchar" MaxLength="50" />
+    <Property Name="isvarify" Type="bit" Nullable="false" />
+    <Property Name="uinit_time" Type="datetime" />
+    <Property Name="umodified_time" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="bug_trackerModelStoreContainer">
+    <EntitySet Name="AppCode" EntityType="Self.AppCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bugs" EntityType="Self.bugs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="priorities" EntityType="Self.priorities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="projects" EntityType="Self.projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="status" EntityType="Self.status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserMessage" EntityType="Self.UserMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

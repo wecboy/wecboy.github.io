@@ -1,0 +1,57 @@
+﻿<!-- Heading -->
+<div class="sidebar-heading">
+    使用者介面
+</div>
+<!-- Nav Item - Pages Collapse Menu -->
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+       aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fa fa-list-alt menu-icon"></i>
+        <span class="h3">缺陷列表</span>
+    </a>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            @*<h6 class="collapse-header">Custom Components:</h6>*@
+            <a class="collapse-item" href="@Url.Action("ALLTList", "Bug")">缺陷列表</a>
+            <a class="collapse-item" href="@Url.Action("TList", "Bug")">由我回報的</a>
+            <a class="collapse-item" href="@Url.Action("ATList", "Bug")">分配給我的</a>
+            <a class="collapse-item" href="@Url.Action("TCreate", "Bug")">回報問題</a>
+        </div>
+    </div>
+</li>
+<!-- Divider -->
+<hr class="sidebar-divider">
+<!-- Heading -->
+<div class="sidebar-heading">
+    管理者介面
+</div>
+<li class="nav-item">
+    <a class="nav-link" href="@Url.Action("TList", "User")">
+        <i class="fa fa-users ace-icon"></i>
+        <span class="h3">人員管理</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="@Url.Action("TList", "Project")">
+        <i class="fa fa-puzzle-piece ace-icon"></i>
+        <span>專案管理</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+       aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fa fa-columns ace-icon"></i>
+        <span class="h3">報表</span>
+    </a>
+    <div id="collapseUtilities" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            @*<h6 class="collapse-header">Custom Components:</h6>*@
+            <a class="collapse-item" href="@Url.Action("bug001", "Report")">依專案</a>
+            <a class="collapse-item" href="@Url.Action("bug002", "Report")">依回報者</a>
+            <a class="collapse-item" href="@Url.Action("bug003", "Report")">依嚴重性</a>
+            <a class="collapse-item" href="@Url.Action("bug004", "Report")">依狀態</a>
+        </div>
+    </div>
+</li>
+<!-- Divider -->
+<hr class="sidebar-divider d-none d-md-block">

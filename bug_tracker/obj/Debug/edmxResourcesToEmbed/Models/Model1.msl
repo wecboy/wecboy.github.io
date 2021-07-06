@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bug_trackerModelStoreContainer" CdmEntityContainer="bug_trackerEntities">
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="bug_trackerModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="rremark" ColumnName="rremark" />
+          <ScalarProperty Name="rname" ColumnName="rname" />
+          <ScalarProperty Name="rrule" ColumnName="rrule" />
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="rowid" ColumnName="rowid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="bug_trackerModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="umodified_time" ColumnName="umodified_time" />
+          <ScalarProperty Name="uinit_time" ColumnName="uinit_time" />
+          <ScalarProperty Name="isvarify" ColumnName="isvarify" />
+          <ScalarProperty Name="varify_code" ColumnName="varify_code" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="ubirthday" ColumnName="ubirthday" />
+          <ScalarProperty Name="urole" ColumnName="urole" />
+          <ScalarProperty Name="uemail" ColumnName="uemail" />
+          <ScalarProperty Name="uphone" ColumnName="uphone" />
+          <ScalarProperty Name="upassword" ColumnName="upassword" />
+          <ScalarProperty Name="uname" ColumnName="uname" />
+          <ScalarProperty Name="umno" ColumnName="umno" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="rowid" ColumnName="rowid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projects">
+      <EntityTypeMapping TypeName="bug_trackerModel.projects">
+        <MappingFragment StoreEntitySet="projects">
+          <ScalarProperty Name="pmodified_time" ColumnName="pmodified_time" />
+          <ScalarProperty Name="pinit_time" ColumnName="pinit_time" />
+          <ScalarProperty Name="pmanager_id" ColumnName="pmanager_id" />
+          <ScalarProperty Name="pdescription" ColumnName="pdescription" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="rowid" ColumnName="rowid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bugs">
+      <EntityTypeMapping TypeName="bug_trackerModel.bugs">
+        <MappingFragment StoreEntitySet="bugs">
+          <ScalarProperty Name="bdescription" ColumnName="bdescription" />
+          <ScalarProperty Name="basignee" ColumnName="basignee" />
+          <ScalarProperty Name="bpid" ColumnName="bpid" />
+          <ScalarProperty Name="bmodified_time" ColumnName="bmodified_time" />
+          <ScalarProperty Name="binit_time" ColumnName="binit_time" />
+          <ScalarProperty Name="bpriority_id" ColumnName="bpriority_id" />
+          <ScalarProperty Name="bstatus_id" ColumnName="bstatus_id" />
+          <ScalarProperty Name="bcreator" ColumnName="bcreator" />
+          <ScalarProperty Name="bsummary" ColumnName="bsummary" />
+          <ScalarProperty Name="bid" ColumnName="bid" />
+          <ScalarProperty Name="rowid" ColumnName="rowid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="priorities">
+      <EntityTypeMapping TypeName="bug_trackerModel.priorities">
+        <MappingFragment StoreEntitySet="priorities">
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="mname" ColumnName="mname" />
+          <ScalarProperty Name="mno" ColumnName="mno" />
+          <ScalarProperty Name="rowid" ColumnName="rowid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="status">
+      <EntityTypeMapping TypeName="bug_trackerModel.status">
+        <MappingFragment StoreEntitySet="status">
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="mname" ColumnName="mname" />
+          <ScalarProperty Name="mno" ColumnName="mno" />
+          <ScalarProperty Name="rowid" ColumnName="rowid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserMessage">
+      <EntityTypeMapping TypeName="bug_trackerModel.UserMessage">
+        <MappingFragment StoreEntitySet="UserMessage">
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="text_content" ColumnName="text_content" />
+          <ScalarProperty Name="text_title" ColumnName="text_title" />
+          <ScalarProperty Name="is_read" ColumnName="is_read" />
+          <ScalarProperty Name="receive_name" ColumnName="receive_name" />
+          <ScalarProperty Name="receive_no" ColumnName="receive_no" />
+          <ScalarProperty Name="sender_name" ColumnName="sender_name" />
+          <ScalarProperty Name="sender_no" ColumnName="sender_no" />
+          <ScalarProperty Name="date_read" ColumnName="date_read" />
+          <ScalarProperty Name="date_sender" ColumnName="date_sender" />
+          <ScalarProperty Name="code_no" ColumnName="code_no" />
+          <ScalarProperty Name="rowid" ColumnName="rowid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppCode">
+      <EntityTypeMapping TypeName="bug_trackerModel.AppCode">
+        <MappingFragment StoreEntitySet="AppCode">
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="mname" ColumnName="mname" />
+          <ScalarProperty Name="mno" ColumnName="mno" />
+          <ScalarProperty Name="type_no" ColumnName="type_no" />
+          <ScalarProperty Name="rowid" ColumnName="rowid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

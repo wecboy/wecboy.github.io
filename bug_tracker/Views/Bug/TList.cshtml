@@ -1,0 +1,111 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model IEnumerable<bug_tracker.Models.bugs>
+
+@{
+    ViewBag.Title = "TList";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script>
+    var table;
+    $(document).ready(function ()
+    {
+        table = $('#table').DataTable(
+            {
+                "language":
+                {
+                    url: "@Url.Content("~/Content/DataTables/lang/Chinese-traditional.json")"
+                }
+            }
+            );
+    });
+
+</script>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">缺陷列表</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <p>
+                    @Html.ActionLink("建立新問題", "TCreate", "Bug", null, new { @class = "btn btn-success" })
+                </p>
+                <table class="table" id="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.bid)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.bsummary)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.bcreator)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.bstatus_id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.bpriority_id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.bmodified_time)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.bpid)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.basignee)
+                            </th>
+                            @*<th>
+                                    @Html.DisplayNameFor(model => model.bdescription)
+                                </th>*@
+                            <th>功能</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.bid)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.bsummary)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.bcreator)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.bstatus_id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.bpriority_id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.bmodified_time)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.bpid)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.basignee)
+                                </td>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.bdescription)
+                                    </td>*@
+                                <td>
+                                    @Html.ActionLink("修改", "TEdit", "Bug", new { id = item.rowid }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("刪除", "TDelete", "Bug", new { id = item.rowid }, new { @class = "btn btn-info", onclick = "return confirm('是否確定要刪除?')" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

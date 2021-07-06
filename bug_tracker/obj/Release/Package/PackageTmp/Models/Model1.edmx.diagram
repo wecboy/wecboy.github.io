@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4609545886584ad39db4834c40c12f4a" Name="Diagram1">
+        <EntityTypeShape EntityType="bug_trackerModel.roles" Width="1.5" PointX="4.5" PointY="0.5" />
+        <EntityTypeShape EntityType="bug_trackerModel.users" Width="1.5" PointX="6.375" PointY="0.5" />
+        <EntityTypeShape EntityType="bug_trackerModel.projects" Width="1.5" PointX="2.25" PointY="0.625" />
+        <EntityTypeShape EntityType="bug_trackerModel.bugs" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="bug_trackerModel.priorities" Width="1.5" PointX="4.25" PointY="3.125" />
+        <EntityTypeShape EntityType="bug_trackerModel.status" Width="1.5" PointX="2.125" PointY="3.375" />
+        <EntityTypeShape EntityType="bug_trackerModel.UserMessage" Width="1.5" PointX="8.375" PointY="0.625" />
+        <EntityTypeShape EntityType="bug_trackerModel.AppCode" Width="1.5" PointX="274.75" PointY="267.375" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,50 @@
+﻿@*Nav Item - Messages*@
+<li class="nav-item dropdown no-arrow mx-1">
+    <a class="nav-link dropdown-toggle" href="_PartialMessage" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-envelope fa-fw"></i>
+        <span class="badge badge-danger badge-counter">@UserAccount.MessageUnRead</span>
+    </a>
+    @*Dropdown - Messages*@
+<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+     aria-labelledby="messagesDropdown">
+    <h6 class="dropdown-header">
+        訊息通知
+    </h6>
+    @foreach (var item in UserAccount.GetUserMessageList(3))
+    {
+        <a class="dropdown-item d-flex align-items-center" href="@Url.Action("Details" , "Message" , new { id = @item.rowid} )" title="@item.text_title">
+            <div class="dropdown-list-image mr-3">
+                <img class="rounded-circle" src="@Url.Content(UserAccount.GetUserImageUrl(item.sender_no))" alt="@item.sender_name">
+                @*<div class="status-indicator bg-success"></div>*@
+
+            </div>
+            <div class="font-weight-bold">
+                <div class="text-truncate">
+                    @item.sender_name
+                </div>
+                <div class="text-truncate">
+                    @if (item.is_read)
+                    {
+                        @item.text_title
+                    }
+                    else
+                    {
+                        <span class="text-bold text-warning">
+                            @item.text_title
+                        </span>
+                    }
+                </div>
+                <div class="small text-gray-500">
+                    @item.date_sender.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm")
+
+                    @if (item.is_read)
+                    {<span>(已讀)</span>}
+                    else
+                    {<span>(未讀)</span>}
+                </div>
+            </div>
+        </a>
+    }
+    <a class="dropdown-item text-center" href="@Url.Action("Index" , "Message")">顯示所有通知</a>
+</div>
+</li>
